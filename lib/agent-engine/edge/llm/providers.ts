@@ -23,6 +23,7 @@ export type ProviderRegistry = Record<string, (apiKey: string, modelId: string) 
 const ANTHROPIC_ENDPOINT = 'https://api.anthropic.com';
 const OPENAI_ENDPOINT = 'https://api.openai.com';
 const GOOGLE_ENDPOINT = 'https://generativelanguage.googleapis.com';
+const DEEPSEEK_ENDPOINT = 'https://api.deepseek.com';
 
 /**
  * Providers reais do lançamento. Sonnet (Anthropic) é o default RECOMENDADO —
@@ -51,6 +52,8 @@ export function createDefaultRegistry(opts?: { allowedHosts?: string[] }): Provi
       createOpenAI({ apiKey, fetch: contain(OPENAI_ENDPOINT) })(modelId),
     google: (apiKey, modelId) =>
       createGoogleGenerativeAI({ apiKey, fetch: contain(GOOGLE_ENDPOINT) })(modelId),
+    deepseek: (apiKey, modelId) =>
+      createOpenAI({ apiKey, baseURL: 'https://api.deepseek.com/v1', fetch: contain(DEEPSEEK_ENDPOINT) })(modelId),
   };
 }
 

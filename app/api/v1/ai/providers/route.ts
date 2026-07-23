@@ -28,6 +28,12 @@ const PROVIDERS = [
     docs_url: "https://ai.google.dev/gemini-api/docs/api-key",
     key_prefix_hint: "AIza",
   },
+  {
+    id: "deepseek",
+    display_name: "DeepSeek",
+    docs_url: "https://api-docs.deepseek.com",
+    key_prefix_hint: "sk-",
+  },
 ];
 
 export async function GET(): Promise<Response> {
