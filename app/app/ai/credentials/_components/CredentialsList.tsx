@@ -18,9 +18,10 @@ const PROVIDER_LABELS: Record<Provider, string> = {
   anthropic: "Anthropic",
   openai: "OpenAI",
   google: "Google",
+  deepseek: "DeepSeek",
 };
 
-const PROVIDER_ORDER: Provider[] = ["anthropic", "openai", "google"];
+const PROVIDER_ORDER: Provider[] = ["anthropic", "openai", "google", "deepseek"];
 
 export function CredentialsList({ initialData, canWrite, usageMap }: Props) {
   const { data } = useCredentialsList({ initialData });
@@ -32,6 +33,7 @@ export function CredentialsList({ initialData, canWrite, usageMap }: Props) {
     anthropic: [],
     openai: [],
     google: [],
+    deepseek: [],
   };
   for (const c of credentials) {
     grouped[c.provider]?.push(c);
